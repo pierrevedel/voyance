@@ -7,13 +7,13 @@ body {
   color:#FFFFFF;
   margin:0px;
   padding: 0.2em;
-  bottom: 0px;
+  bottom: 100px;
   width : 100%;
   overflow:auto;
 } 
 #interaction {
   position: absolute;
-  bottom: 0px;
+  bottom: 100px;
   /*border: 3px solid #8AC007;
   overflow:auto;*/
   color:#FFFFFF;
