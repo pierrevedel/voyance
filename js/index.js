@@ -203,7 +203,7 @@ var rotatingTextGroup = new THREE.Group();
     // table to store each single letter separatly
     var textTable = [];
     // variables to set gap between letters       
-        var specialLetter = ['!', 'I', '\'', ','];
+        var specialLetter = ['!', 'I', '\'', ',', '-', '?'];
         var flagSpecialLetter = Boolean(false);
         var gapLetter =.33;
         var gapSpecialLetter = 0.71*gapLetter;
