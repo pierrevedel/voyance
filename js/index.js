@@ -290,14 +290,37 @@ var flagAnimationOver = Boolean(false);
 //////////////////////////////////////////////////////////////////////////////////
 //Interaction with buttons
 //////////////////////////////////////////////////////////////////////////////////
- var divPlus = document.getElementById('+');
-  divPlus.addEventListener("click", function(){
-  rotatingTextGroup.rotation.x += -Math.PI/8;
+//bloquer la selection de texte pour les appuis long sur les boutons
+document.onselectstart = (e) => { e.preventDefault() }
+
+var isTouching = false;
+var direction;
+
+function rotateText() {
+  if(isTouching){
+    requestAnimationFrame(rotateText);
+    rotatingTextGroup.rotation.x += direction*-Math.PI/200;
+   }
+}
+
+  var divPlus = document.getElementById('+');
+  divPlus.addEventListener("touchstart", function(){
+  isTouching = true;
+  direction = 1
+  requestAnimationFrame(rotateText);
+})
+  divPlus.addEventListener("touchend", function(){
+  isTouching = false;
 })
   
   var divMenos = document.getElementById('-');
-  divMenos.addEventListener("click", function(){
- rotatingTextGroup.rotation.x += +Math.PI/8;
+  divMenos.addEventListener("touchstart", function(){
+  isTouching = true;
+  direction = -1
+  requestAnimationFrame(rotateText);
+})
+  divMenos.addEventListener("touchend", function(){
+  isTouching = false;
 })
 
   var divQuestion = document.getElementById('?');
